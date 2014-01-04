@@ -3,11 +3,15 @@ Page-RSS
 
 What it do, yo
 --------------
-Page RSS turns any webpage into an RSS feed. All you need is a URL and an xpath expression.
+Page RSS turns any webpage into an RSS feed. It doesn't need to be your own. All you need is a URL and an xpath expression.
 
 Why use, brah
 -------------
 If you already use an RSS reader, use it to get notified when a webpage gets updated without having to visit it periodically, for instance, or subscribe to something that doesn't have a built-in subscription system. You could use it to see when your favorite TV show has an update, or when a friend's wedding registry gets posted. If you don't use an RSS reader, you could pipe it into something like Zapier or IFTTT.
+
+What I can't?
+-------------
+If the page you want to track requires a log in, or is a web app with lots of dynamic content, this tool isn't going to be able to do it for ya. Sorry.
 
 I dig it.
 ---------
@@ -19,7 +23,7 @@ Well, yes, that's the idea. You could always [Google it](https://www.google.com/
 
 Why am I being prompted to log in?
 ----------------------------------
-You're asked to log in so that your entries don't collide with other users. That way, you can't modify or delete their entries, and they can't mess with yours. You can still read other people's feeds though, if they tell you the feed's rss url.
+You're asked to log in so that your entries don't collide with other users. That way, you can't modify or delete their entries, and they can't mess with yours. You can still read other people's feeds though, if they tell you the feed's rss url. Only your Google username is read for this purpose, and never shared or published.
 
 Next updates
 ------------
