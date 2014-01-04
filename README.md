@@ -17,6 +17,10 @@ I dig it.
 ---------
 Ya.
 
+Where it be?
+------------
+The prototype is running in appengine at [http://page-rss.appspot.com](http://page-rss.appspot.com).
+
 Do I need to know xpath?
 ------------------------
 Well, yes, that's the idea. You could always [Google it](https://www.google.com/search?q=xpath) to get a refresher on the syntax.
