@@ -15,9 +15,11 @@ JINJA_ENV = jinja2.Environment(
 
 class SplashHandler(webapp2.RequestHandler):
   def get(self):
-    self.response.headers['Content-Type'] = 'text/html'
-    template = JINJA_ENV.get_template('splash.html')
-    self.response.write(template.render({}))
+    # TODO The splash handler is not very welcoming right now.
+    self.redirect('/feeds')
+    # self.response.headers['Content-Type'] = 'text/html'
+    # template = JINJA_ENV.get_template('splash.html')
+    # self.response.write(template.render({}))
 
 class FeedsHandler(webapp2.RequestHandler):
   def get(self, **kwargs):

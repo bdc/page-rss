@@ -12,13 +12,6 @@ libraries:
 - name: lxml
   version: 2.3.5
 
-indexes:
-- kind: Feed
-  properties:
-  - name: user_id
-  - name: title
-    direction: asc
-
 handlers:
 - url: /s
   static_dir: static
