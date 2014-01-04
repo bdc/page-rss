@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>{{ rss_data.title }}</title>
+    <subtitle>Made with Page-RSS</subtitle>
+    <link href="{{ rss_data.rss_url }}" rel="self" />
+    <id>{{ rss_data.rss_url }}</id>
+    <updated>{{ rss_data.updated_time }}</updated>
+    <author><name>Page-RSS</name></author>
+    {% for feed_item in rss_data.feed_items %}
+    <entry>
+        <title>{{ feed_item.text }}</title>
+        <link href="{{ rss_data.url }}"/>
+        <id>{{ feed_item.item_id }}</id>
+        <updated>{{ feed_item.updated_time }}</updated>
+        <summary>{{ feed_item.text }}</summary>
+        <content>{{ feed_item.text }}</content>
+    </entry>
+    {% endfor %}
+</feed>
+
+

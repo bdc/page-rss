@@ -1,0 +1,99 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/s/css.css" />
+  <script type="text/javascript" src="/s/feeds.js"></script>
+</head>
+<body>
+<div class="body">
+
+<span class="title">Page-RSS</span>
+
+<span class="header">About</span>
+<blockquote>
+This is a tool for creating rss feeds from arbitrary websites using urls and xpath expressions.
+</blockquote>
+
+<span class="header">Add New or Edit</span>
+<blockquote>
+<form method="post">
+  <input name="action" value="new" type="hidden" />
+  <input name="feed_id" value="{{ loaded_feed.feed_id if loaded_feed }}" type="hidden" />
+  <table>
+    {% if loaded_feed and loaded_feed.feed_id %}
+    <tr>
+      <td>
+        ID
+      </td>
+      <td>
+        <div name="feed_id">{{ loaded_feed.feed_id if loaded_feed }}</div>
+      </td>
+    </tr>
+    {% endif %}
+    <tr>
+      <td>
+        Title
+      </td>
+      <td>
+        <input name="title" value="{{ loaded_feed.title if loaded_feed }}" size="50" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        URL
+      </td>
+      <td>
+        <input name="url" value="{{ loaded_feed.url if loaded_feed }}" size="50" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        xpath
+      </td>
+      <td>
+        <input name="xpath" value="{{ loaded_feed.xpath if loaded_feed }}" size="50" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="right">
+        <input type="button" value="Clear" onclick="clearFeed()" />
+        <input type="button" value="Test" onclick="testFeed()" />
+        <input type="button" value="Save" onclick="saveFeed()" />
+      </td>
+    </tr>
+  </table>
+</form>
+</blockquote>
+
+{% if test_data %}
+<span class="header">Preview</span>
+<blockquote>
+  <ul>
+    {% for item in test_data %}
+      <li>{{ item.text }}</li>
+    {% endfor %}
+  </ul>
+</blockquote>
+{% endif %}
+
+
+<span class="header">Existing</span>
+<blockquote>
+  <ul>
+  {% for feed in feeds %}
+    <li>
+      [<a href="/rss/{{ feed.feed_id }}">RSS</a>] &nbsp;
+      [<a href="#" onclick="deleteFeed({{ feed.feed_id }})">delete forever</a>] &nbsp;
+      <a href="#" title="Click to edit and test this feed" onclick="editFeed({{ feed.feed_id }})">{{ feed.title }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</blockquote>
+
+<span class="footer">&copy; 2014</span>
+
+</div>
+</body>
+</html>
+
+
+

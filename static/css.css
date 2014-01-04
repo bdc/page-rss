@@ -1,0 +1,47 @@
+
+div.body
+{
+  width             : 620px;
+  display           : inline-block;
+}
+
+span
+{
+  padding           : 5px;
+  border            : 1px solid black;
+}
+
+span.title
+{
+  width             : 100%;
+  display           : inline-block;
+  margin-bottom     : 20px;
+  text-align        : center;
+  background-color  : #224499;
+  color             : white;
+  font-weight       : bold;
+  font-family       : sans-serif;
+  font-size         : 20px;
+}
+
+span.header
+{
+  width             : 100%;
+  display           : inline-block;
+  text-align        : center;
+  background-color  : #88aaff;
+  font-weight       : bold;
+  font-family       : sans-serif;
+  font-size         : 20px;
+}
+
+span.footer
+{
+  width             : 100%;
+  display           : inline-block;
+  text-align        : right;
+  font-style        : italic;
+  background-color  : #ddeeff;
+}
+
+
