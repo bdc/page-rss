@@ -17,12 +17,14 @@ SETTINGS = {
 
 
 def _ElementToText(element):
-  text = etree.tostring(element, method='text')
+  text = etree.tostring(element, method='text', encoding='UTF-8')
   text = re.sub('[^a-zA-Z\d\-_ \.!\?]', '', text)
   return text
 
 def _Scrape(url, xpath):
   logging.info('Scraping %s...', url)
+  if not url or not xpath:
+    return []
   try:
     url_req = urllib2.Request(url, headers={'User-Agent': 'Page-RSS'})
     page = urllib2.urlopen(url_req)
@@ -45,7 +47,6 @@ def _FormatTime(dt):
 
 def GetFeedsForUser(user_id):
   feeds = feed.Feed.query(feed.Feed.user_id == user_id).order(feed.Feed.title)
-  logging.info(feeds)
   rsp = []
   for feed_obj in feeds:
     rsp.append({
@@ -54,6 +55,7 @@ def GetFeedsForUser(user_id):
       'url': feed_obj.url,
       'xpath': feed_obj.xpath,
     })
+  logging.info(rsp)
   return rsp
 
 def GetTestData(url, xpath):

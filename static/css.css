@@ -44,4 +44,10 @@ span.footer
   background-color  : #ddeeff;
 }
 
+div.top-right
+{
+  position          : absolute;
+  right             : 20px;
+}
+
 

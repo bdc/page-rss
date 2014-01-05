@@ -31,10 +31,11 @@ You're asked to log in so that your entries don't collide with other users. That
 
 Next updates
 ------------
-* Add explanation text to 'About'
-* Add a splash page
+* Bug with most recently saved item not immediately appearing in the 'Existing' list
 * Add a few 'default' feeds so new users can play with examples
-* Log out button
+* Add explanation text to 'About'
+* Make it Ajaxy
+* Add a splash page
 * Pretty UI
 * More configurable options for how feed appears
 

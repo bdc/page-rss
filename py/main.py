@@ -25,33 +25,30 @@ class FeedsHandler(webapp2.RequestHandler):
   def get(self, **kwargs):
     self.handle()
   def post(self, **kwargs):
+    data = {}
     if self.request.get('action') == 'edit':
-      loaded_feed = page_rss.GetFeed(self.request.get('feed_id'))
-      self.handle(loaded_feed=loaded_feed)
-    if self.request.get('action') == 'test':
-      test_data = page_rss.GetTestData(
+      data['loaded_feed'] = page_rss.GetFeed(self.request.get('feed_id'))
+    elif self.request.get('action') == 'test':
+      data['test_data'] = page_rss.GetTestData(
           self.request.get('url'),
           self.request.get('xpath'))
-      loaded_feed = self.request.POST
-      self.handle(loaded_feed=loaded_feed, test_data=test_data)
-    if self.request.get('action') == 'delete':
+      data['loaded_feed'] = self.request.POST
+    elif self.request.get('action') == 'delete':
       page_rss.DeleteFeed(
           users.get_current_user().nickname(),
           self.request.get('feed_id'))
-      self.handle()
-    if self.request.get('action') == 'save':
-      feed_id = page_rss.SaveFeed(
+    elif self.request.get('action') == 'save':
+      page_rss.SaveFeed(
           users.get_current_user().nickname(),
           self.request.get('feed_id'),
           self.request.get('title'),
           self.request.get('url'),
           self.request.get('xpath'))
-      loaded_feed = page_rss.GetFeed(feed_id)
-      self.handle(loaded_feed=loaded_feed)
+      data['loaded_feed'] = self.request.POST
+    self.handle(**data)
   def handle(
       self, test_data=None, save_data=None, loaded_feed=None, message=None):
-    feeds = page_rss.GetFeedsForUser(
-        users.get_current_user().nickname())
+    feeds = page_rss.GetFeedsForUser(users.get_current_user().nickname())
     self.response.headers['Content-Type'] = 'text/html'
     template = JINJA_ENV.get_template('feeds.html')
     self.response.write(template.render({
